@@ -58,4 +58,12 @@ do_deploy() {
 
 do_deploy[dirs] = "${S}"
 
+def split_PV(p):
+	import re
+	r=re.compile("[0-9]\.[0-9]+[^0-9]{0,2}[0-9]?$")
+	m = r.search(p)
+	if m:
+		return m.group(0)
+	return None
+
 addtask deploy before do_populate_staging after do_install
