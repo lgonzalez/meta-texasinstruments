@@ -60,7 +60,7 @@ do_deploy[dirs] = "${S}"
 
 def split_PV(p):
 	import re
-	r=re.compile("[0-9]\.[0-9]+[^0-9]{0,2}[0-9]?$")
+	r=re.compile(r'\d\.\d+\D{0,2}\d?$')
 	m = r.search(p)
 	if m:
 		return m.group(0)
