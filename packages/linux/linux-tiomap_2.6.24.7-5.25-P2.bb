@@ -1,6 +1,14 @@
 require linux-omap.inc
 inherit ccasefetch
 
+def split_PV(p):
+	import re
+	r=re.compile(r'\d\.\d+\D{0,2}\d?$')
+	m = r.search(p)
+	if m:
+		return m.group(0)
+	return None
+
 PR = "r0"
 LV = "${@split_PV('${PV}')}"
 
