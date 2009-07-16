@@ -1,14 +1,22 @@
 require linux-omap.inc
 inherit ccasefetch
 
+def split_PV(p):
+	import re
+	r=re.compile(r'\d\.\d+\D{0,2}\d?$')
+	m = r.search(p)
+	if m:
+		return m.group(0)
+	return None
+
 PR = "r0"
+LV = "${@split_PV('${PV}'}"
 
 COMPATIBLE_MACHINE = "omap-3430ldp|omap-3430sdp"
 DEFAULT_PREFERENCE = "1"
 
 CCASE_SPEC = "\
-	element /vobs/wtbu/CSSD_L_GIT_2.6/linux/kernel_org/2.6_kernel/...	LINUX-GIT-2.6.24K_RLS_5.25-P3%\
-	element /vobs/wtbu/CSSD_L_GIT_2.6/linux/kernel_org/2.6_kernel/...	LINUX-GIT-2.6.24K_RLS_5.25-P2%\	
+	element /vobs/wtbu/CSSD_L_GIT_2.6/linux/kernel_org/2.6_kernel/...	LINUX-GIT-2.6.24K_RLS_${LV}%\
 	element	/vobs/wtbu/CSSD_L_GIT_2.6/linux/kernel_org	/main/LATEST%\
 	element	/vobs/wtbu/CSSD_L_GIT_2.6/linux			/main/LATEST%\
 	element	/vobs/wtbu/CSSD_L_GIT_2.6			/main/LATEST%\
