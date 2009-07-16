@@ -5,7 +5,7 @@ LICENSE = "GPL"
 PR = "r1"
 COMPATIBLE_MACHINE = "omap-3430(l|s)dp|beagleboard"
 RDEPENDS = sgx-kernel-module
-DEPENDS = virtual/kernel bison-native-1.875
+DEPENDS = virtual/kernel
 
 inherit ccasefetch
 
@@ -33,7 +33,7 @@ do_chmod() {
 do_compile() {
 	cd ${S}/src/eurasia/eurasiacon/build/linux/omap3430_linux
 	oe_runmake EURASIAROOT=${S}/src/eurasia KERNELDIR=${STAGING_KERNEL_DIR} \
-		DISCIMAGE=${STAGING_DIR_TARGET} X11ROOT=${prefix} BISON=${STAGING_DIR_TARGET}/../i686-linux/usr/local/bin/bison-native-1.875 V=1 SUPPORT_XWS=0
+		DISCIMAGE=${STAGING_DIR_TARGET} X11ROOT=${prefix} BISON=bison-1.875 V=1 SUPPORT_XWS=0
 }
 
 do_install() {
@@ -86,7 +86,7 @@ do_install() {
 # FIXME: make install doesn't seem to work...
 #	oe_runmake EURASIAROOT=${S}/src/eurasia KERNELDIR=${STAGING_KERNEL_DIR} \
 #		DISCIMAGE=${D} X11ROOT=${prefix} CROSS=${AR%-*}- \
-#		BISON=bison-native-1.875 SUPPORT_XWS=0 install
+#		BISON=bison-1.875 SUPPORT_XWS=0 install
 }
 
 

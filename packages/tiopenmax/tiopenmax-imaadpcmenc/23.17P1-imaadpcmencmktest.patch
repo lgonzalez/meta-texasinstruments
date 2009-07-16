@@ -16,15 +16,6 @@
  endif  
  
  HSRC=$(wildcard ../inc/*)
-@@ -23,7 +23,7 @@
- 
- include $(OMXROOT)/Master.mk
- 
--CFLAGS+=-I../inc -I$(OMXINCLUDEDIR) -I$(SYSTEMINCLUDEDIR) -I$(BRIDGEINCLUDEDIR) -I$(GTTOOLSINCDIR) -Wall -fpic -pipe -DOMAP_2430 -DETEEDN_PATH -DDSP_RENDERING_ON
-+CFLAGS+=-I../inc -I$(OMXINCLUDEDIR) -I$(SYSTEMINCLUDEDIR) -I$(BRIDGEINCLUDEDIR) -I$(GTTOOLSINCDIR) -Wall -ansi -fpic -pipe -DOMAP_2430 -DETEEDN_PATH -DDSP_RENDERING_ON
- 
- ifeq ($(OMX_DEBUG), 1)
-     CFLAGS += -O0
 @@ -46,7 +46,7 @@
  
  all install:: $(COMPONENT_TARGET)

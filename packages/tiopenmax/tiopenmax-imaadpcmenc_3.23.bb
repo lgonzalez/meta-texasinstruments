@@ -16,7 +16,7 @@ SRC_URI = "\
 	file://23.14-imaadpcmencnocore.patch;patch=1 \
 	file://23.14-imaadpcmenctestnocore.patch;patch=1 \
 	file://23.14-imaadpcmencmkfile.patch;patch=1 \	
-	file://23.14-imaadpcmencmktest.patch;patch=1 \
+	file://23.17P1-imaadpcmencmktest.patch;patch=1 \
 	file://23.14-imaadpcmencmsttest.patch;patch=1 \
 	${@base_contains("DISTRO_FEATURES", "testpatterns", "", "file://remove-patterns.patch;patch=1", d)} \
 	"
